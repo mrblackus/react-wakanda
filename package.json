@@ -1,0 +1,32 @@
+{
+  "name": "react-wakanda",
+  "version": "0.0.1",
+  "description": "Use your Wakanda backend with React",
+  "main": "dist/react-wakanda.js",
+  "scripts": {
+    "watch": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrblackus/react-wakanda.git"
+  },
+  "keywords": [
+    "react",
+    "wakanda",
+    "redux"
+  ],
+  "author": "Mathieu Savy <mathieu.savy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrblackus/react-wakanda/issues"
+  },
+  "homepage": "https://github.com/mrblackus/react-wakanda#readme",
+  "devDependencies": {
+    "ts-loader": "^0.8.1",
+    "tslint": "^3.10.2",
+    "tslint-loader": "^2.1.4",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.13.0"
+  }
+}
