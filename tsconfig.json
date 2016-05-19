@@ -1,16 +1,19 @@
 {
     "compilerOptions": {
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "module": "commonjs",
         "target": "es5",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
         "declaration": true,
-        "outDir": "ts-build"
+        "outDir": "ts-build",
+        "jsx": "react"
     },
     "files": [
-      "typings/browser.d.ts",
-      "src/index.ts"
+      "typings/index.d.ts",
+      "require.d.ts",
+      "src/index.ts",
+      "app/app.tsx"
     ]
 }

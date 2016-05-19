@@ -4,7 +4,7 @@ const isProd = env === 'prod';
 let baseConfig = {
   entry: {
     'react-wakanda': ['./src/index.ts'],
-    'app': './app/app.ts'
+    'app': './app/app.tsx'
   },
   output: {
     filename: '[name].js',
@@ -12,19 +12,19 @@ let baseConfig = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['', '.ts', '.tsx', '.js']
   },
   module: {
     preLoaders: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         include: /src/,
         loader: 'tslint'
       }
     ],
     loaders: [
       {
-        test: /\.ts$/,
+        test: /\.tsx?$/,
         exclude: [
           /node_modules/
         ],
