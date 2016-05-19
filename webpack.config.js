@@ -18,6 +18,7 @@ let baseConfig = {
     preLoaders: [
       {
         test: /\.ts$/,
+        include: /src/,
         loader: 'tslint'
       }
     ],

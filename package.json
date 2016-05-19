@@ -4,7 +4,10 @@
   "description": "Use your Wakanda backend with React",
   "main": "dist/react-wakanda.js",
   "scripts": {
-    "watch": "webpack -w"
+    "build": "webpack",
+    "watch": "webpack -w",
+    "server": "http-server . -p 1136 -s",
+    "serve": "concurrently -r \"npm run watch\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
   },
   "homepage": "https://github.com/mrblackus/react-wakanda#readme",
   "devDependencies": {
+    "concurrently": "^2.1.0",
     "ts-loader": "^0.8.1",
     "tslint": "^3.10.2",
     "tslint-loader": "^2.1.4",
