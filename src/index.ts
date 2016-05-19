@@ -1,7 +1,3 @@
-console.log('Hello from React-Wakanda');
+export {find} from 'actions/dataclass/find';
 
-export class Index {
-  foo() {
-    return 'baar';
-  }
-}
+console.log('Hello from React-Wakanda');

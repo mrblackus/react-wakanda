@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack -w",
-    "server": "http-server . -p 1136 -s",
+    "server": "http-server . -p 1136 -s -P http://localhost:8081",
     "serve": "concurrently -r \"npm run watch\" \"npm run server\""
   },
   "repository": {
@@ -30,7 +30,7 @@
     "react-redux": "^4.4.5",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
-    "ts-loader": "^0.8.1",
+    "ts-loader": "0.8.1",
     "tslint": "^3.10.2",
     "tslint-loader": "^2.1.4",
     "typescript": "^1.8.10",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "react": "^15.0.2",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "wakanda-client": "^0.3.2"
   }
 }

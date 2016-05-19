@@ -1,3 +1,5 @@
+const path = require('path');
+
 const env = process.env.ENV;
 const isProd = env === 'prod';
 
@@ -12,7 +14,8 @@ let baseConfig = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js']
+    extensions: ['', '.ts', '.tsx', '.js'],
+    root: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')]
   },
   module: {
     preLoaders: [

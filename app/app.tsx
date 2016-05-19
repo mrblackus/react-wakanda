@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {render} from 'react-dom';
-import {createStore, applyMiddleware, IAction, IActionGeneric} from 'redux';
-import * as createLogger from 'redux-logger';
+import {createStore, applyMiddleware, combineReducers, IAction, IActionGeneric} from 'redux';
+const createLogger: any = require('redux-logger');
 const thunkMiddleware: any = require('redux-thunk').default;
 
 import {IItem} from './interfaces/item';
 import {TodoListContainer} from './containers/todo-list-container';
+
+import {find} from '../src/index';
 
 export interface IAppState {
   items: IItem[];
@@ -17,11 +19,21 @@ const initialItems = [
   {ID: 2, label: 'be positive',    done: true}
 ];
 
-const reducer = (state: IAppState = {items: []}, action: IAction) => {
+const reducer = (state: IItem[] = [], action: IAction) => {
   switch (action.type) {
     case 'ITEMS_FETCHED':
+      return (action as IActionGeneric<IItem[]>).payload;
+    default:
+      return state;
+  }
+};
+
+const totoReducer = (state: any = {}, action: IActionGeneric<any>) => {
+  switch (action.type) {
+    case 'FIND_SUCCESS':
+      console.log('we got some items from find!', action.payload);
       return Object.assign({}, state, {
-        items: (action as IActionGeneric<IItem[]>).payload
+        entity: action.payload
       });
     default:
       return state;
@@ -29,7 +41,10 @@ const reducer = (state: IAppState = {items: []}, action: IAction) => {
 };
 
 const logger = createLogger();
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
+const store = createStore(combineReducers({
+  items: reducer,
+  toto: totoReducer
+  }), applyMiddleware(thunkMiddleware, logger));
 
 function fetchedItem(items: IItem[]): IActionGeneric<IItem[]> {
   return {
@@ -42,3 +57,16 @@ store.dispatch(fetchedItem(initialItems));
 
 
 render(<TodoListContainer store={store} />, document.getElementById('react-mount'));
+
+function findSuccess(data): IActionGeneric<any> {
+  return {
+    type: 'FIND_SUCCESS',
+    payload: data
+  };
+};
+
+store.dispatch(find({
+  dataClassName: 'Product',
+  key: 889,
+  successAction: findSuccess
+}) as any);

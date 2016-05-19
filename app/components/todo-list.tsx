@@ -12,6 +12,7 @@ export class TodoList extends React.Component<ITodoListProps, {}> {
 
   constructor(props: ITodoListProps) {
     super(props);
+
   }
 
   public markItemAsDone(item: IItem) {
