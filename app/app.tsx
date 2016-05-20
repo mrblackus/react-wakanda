@@ -7,7 +7,7 @@ const thunkMiddleware: any = require('redux-thunk').default;
 import {IItem} from './interfaces/item';
 import {TodoListContainer} from './containers/todo-list-container';
 
-import {find} from '../src/index';
+import {find, query} from '../src/index';
 
 export interface IAppState {
   items: IItem[];
@@ -65,8 +65,16 @@ function findSuccess(data): IActionGeneric<any> {
   };
 };
 
-store.dispatch(find({
+// store.dispatch(find({
+//   dataClassName: 'Product',
+//   key: 889,
+//   successAction: findSuccess
+// }) as any);
+
+store.dispatch(query({
   dataClassName: 'Product',
-  key: 889,
+  options: {
+    pageSize: 5
+  },
   successAction: findSuccess
 }) as any);

@@ -11,4 +11,12 @@ export class DataClassBusiness extends Business {
       dataClassName
     });
   }
+
+  public query(dataClassName: string, options: any) {
+    return DataClassBaseService.query({
+      httpClient: this._httpClient,
+      options,
+      dataClassName
+    });
+  }
 }
